@@ -1,0 +1,97 @@
+#neubar {
+    box-shadow: 4px 6px 12px rgba(70, 63, 99, 0.726)
+}
+.nav-link:hover{
+    color: rgb(146, 171, 252);
+}
+.nav-link{
+    font-weight: bold;
+    font-size: 28px;
+}
+.bg-custom{
+    background-color: rgb(64, 64, 124);
+    border-radius: 20px;
+    box-shadow: 4px 6px 12px rgba(48, 17, 185, 0.726);
+    margin-top: 30px;
+}
+.display-3{
+    color:rgb(192, 213, 231);
+    font-weight: bold;
+    font-family: "Aharoni";
+    text-align: center;
+}
+.lead{
+    color: aliceblue;
+    text-align: center;
+    font-size: 23px;
+    font-family: "Aharoni";
+}
+.my-2{
+    color: rgb(99, 154, 255);
+    border-width: 5px;
+}
+
+.bg1{
+    background: #0f0c29; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0f0c29, #302b63, #24243e); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    position: fixed; 
+    top: 1; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    z-index: -1;
+    overflow: auto; /* Habilita la barra de desplazamiento */
+}
+
+.card{
+    background-color: rgb(139, 139, 201);
+    border-radius: 20px;
+}
+.table{
+    border: 2px solid #000000;
+    background-color: rgb(129, 169, 255);
+    font-size: 20px;
+    font-family: "Aharoni";
+}
+
+.card-title{
+    text-align: center;
+    font-weight: bold;
+    font-family: "Aharoni";
+    font-size: 35px;
+}
+
+.btn-group-vertical{
+    margin-top: 20px;
+    border: 1px solid #000000;
+    border-radius: 7px;
+}
+
+.btn-success{
+    font-weight: bold;
+    font-family: "Aharoni";
+    font-size: 20px;
+}
+
+.btn-danger{
+    font-weight: bold;
+    font-family: "Aharoni";
+    font-size: 20px;
+}
+
+.btn-info{
+    font-weight: bold;
+    font-family: "Aharoni";
+    font-size: 20px;
+}
+
+.mb-3{
+    font-weight: bold;
+    font-family: "Aharoni";
+    font-size: 20px;
+}
+
+.form-control{
+    border: 2px solid #000000;
+}

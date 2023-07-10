@@ -1,0 +1,48 @@
+{% extends "base.html"%}
+
+{% block titulo %} Ayuda {% endblock %}
+
+{% block contenido %} 
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Ayuda</h4>
+    <table class="table">
+      <tr>
+        <th class="text-center align-middle">Agregar películas:</th>
+        <td>
+          <ul>
+            <li>En la página principal, haz clic en el botón "Agregar película".</li>
+            <li>Completa el formulario de ingreso de películas.</li>
+            <li>Ingresa el título de la película en el campo correspondiente.</li>
+            <li>Selecciona una imagen de la película haciendo clic en el botón "Seleccionar archivo".</li>
+            <li>Describe la película en el campo de descripción.</li>
+            <li>Haz clic en el botón "Guardar" para guardar la película en tu biblioteca personal.</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th class="text-center align-middle">Editar información de películas:</th>
+        <td>
+          <ul>
+            <li>En tu biblioteca personal, busca la película que deseas editar.</li>
+            <li>Haz clic en el botón "Editar" junto a la película seleccionada.</li>
+            <li>Modifica el título, la descripción o la imagen de la película según sea necesario.</li>
+            <li>Haz clic en el botón "Guardar" para actualizar la información de la película.</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th class="text-center align-middle">Eliminar películas:</th>
+        <td>
+          <ul>
+            <li>En tu biblioteca personal, localiza la película que deseas eliminar.</li>
+            <li>Haz clic en el botón "Eliminar" junto a la película seleccionada.</li>
+            <li>Se te pedirá que confirmes la eliminación de la película.</li>
+            <li>Haz clic en "Aceptar" para eliminar permanentemente la película de tu biblioteca.</li>
+          </ul>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+{% endblock %}
