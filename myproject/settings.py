@@ -78,11 +78,11 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'djangoPeliculas',
+        'NAME': 'railway',
         'USER': 'root',
-        'PASSWORD': '',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'PASSWORD': 'nX14q6bRfyc5EJPMnf81',
+        'HOST': 'containers-us-west-52.railway.app',
+        'PORT': '5524',
     }
 }
 
