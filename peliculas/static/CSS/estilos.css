@@ -17,14 +17,14 @@
 .display-3{
     color:rgb(192, 213, 231);
     font-weight: bold;
-    font-family: "Aharoni";
+    font-family: "Arial";
     text-align: center;
 }
 .lead{
     color: aliceblue;
     text-align: center;
     font-size: 23px;
-    font-family: "Aharoni";
+    font-family: "Arial";
 }
 .my-2{
     color: rgb(99, 154, 255);
@@ -52,13 +52,13 @@
     border: 2px solid #000000;
     background-color: rgb(129, 169, 255);
     font-size: 20px;
-    font-family: "Aharoni";
+    font-family: "Arial";
 }
 
 .card-title{
     text-align: center;
     font-weight: bold;
-    font-family: "Aharoni";
+    font-family: "Arial";
     font-size: 35px;
 }
 
@@ -70,25 +70,25 @@
 
 .btn-success{
     font-weight: bold;
-    font-family: "Aharoni";
+    font-family: "Arial";
     font-size: 20px;
 }
 
 .btn-danger{
     font-weight: bold;
-    font-family: "Aharoni";
+    font-family: "Arial";
     font-size: 20px;
 }
 
 .btn-info{
     font-weight: bold;
-    font-family: "Aharoni";
+    font-family: "Arial";
     font-size: 20px;
 }
 
 .mb-3{
     font-weight: bold;
-    font-family: "Aharoni";
+    font-family: "Arial";
     font-size: 20px;
 }
 
