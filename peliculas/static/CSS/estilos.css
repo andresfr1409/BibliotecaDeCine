@@ -95,3 +95,17 @@
 .form-control{
     border: 2px solid #000000;
 }
+
+#TituloPelicula{
+    font-size: 20px;
+}
+
+#DescripcionPelicula{
+    max-height: 4.6em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal; 
+    line-height: 1.2em;
+}
+
+

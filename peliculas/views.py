@@ -18,7 +18,8 @@ def buscar_peliculas(request):
   if request.method == "POST":
     termino_busqueda = request.POST.get("termino_busqueda")
     api_key = "85efd76158e2b80a6a3d456beb14f93c"
-    url = f"https://api.themoviedb.org/3/search/movie?api_key={api_key}&query={termino_busqueda}"
+    idioma = "es-mx"
+    url = f"https://api.themoviedb.org/3/search/movie?api_key={api_key}&query={termino_busqueda}&language={idioma}"
     response = requests.get(url)
     if response.status_code == 200:
       datos = response.json()
