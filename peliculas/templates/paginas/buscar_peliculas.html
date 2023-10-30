@@ -1,0 +1,28 @@
+{% extends "base.html"%}
+
+{% block titulo %} Buscar {% endblock %}
+
+{% block contenido %} 
+
+<h1>Resultados de búsqueda en TMDb</h1>
+<form method="post">
+    {% csrf_token %}
+    <input type="text" name="termino_busqueda" placeholder="Buscar película">
+    <input type="submit" value="Buscar">
+</form>
+<div class="row row-cols-1 row-cols-md-5 g-4">
+    {% for pelicula in resultados %}
+        <div class="col">
+            <div class="card">
+                <img src="https://image.tmdb.org/t/p/w500{{ pelicula.poster_path }}" class="card-img-top" alt="{{ pelicula.title }}">
+                <div class="card-body">
+                    <h5 class="card-title" id="TituloPelicula">{{ pelicula.title }}</h5>
+                </div>
+                <div class="card-footer">
+                    <small class="text-body-secondary">{{ pelicula.release_date }}</small>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -25,8 +25,8 @@ def buscar_peliculas(request):
       resultados = datos.get("results")
     else:
       resultados = []
-    return render(request, "peliculas/buscar_peliculas.html", {"resultados": resultados})
-  return render(request, "peliculas/buscar_peliculas.html")
+    return render(request, "paginas/buscar_peliculas.html", {"resultados": resultados})
+  return render(request, "paginas/buscar_peliculas.html")
 
 def agregar(request):
   formulario = PeliculaForm(request.POST or None, request.FILES or None)
