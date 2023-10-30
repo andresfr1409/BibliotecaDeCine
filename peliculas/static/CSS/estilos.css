@@ -101,11 +101,19 @@
 }
 
 #DescripcionPelicula{
-    max-height: 4.6em;
+    max-height: 4.9em;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal; 
     line-height: 1.2em;
 }
 
+h1{
+    text-align: center;
+    color: rgb(192, 213, 231);
+    margin-bottom: 20px;
+}
 
+#CajaBusqueda{
+    margin-bottom: 25px;
+}

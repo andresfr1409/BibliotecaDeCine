@@ -4,11 +4,13 @@
 
 {% block contenido %} 
 
-<h1>Resultados de búsqueda en TMDb</h1>
+<h1>Búsqueda de peliculas</h1>
 <form method="post">
     {% csrf_token %}
-    <input type="text" name="termino_busqueda" placeholder="Buscar película">
-    <input type="submit" value="Buscar">
+    <div class="input-group" id="CajaBusqueda">
+        <input type="search" class="form-control rounded" name="termino_busqueda" placeholder="Buscar película" aria-label="Search" aria-describedby="search-addon" />
+        <button type="submit" class="btn btn-outline-primary">Buscar</button>
+    </div>
 </form>
 <div class="row row-cols-1 row-cols-md-5 g-4">
     {% for pelicula in resultados %}
