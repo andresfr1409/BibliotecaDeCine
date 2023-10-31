@@ -16,12 +16,16 @@
     {% for pelicula in resultados %}
         <div class="col">
             <div class="card">
-                <img src="https://image.tmdb.org/t/p/w500{{ pelicula.poster_path }}" class="card-img-top" alt="{{ pelicula.title }}">
+                {% if pelicula.poster_path %}
+                    <img src="https://image.tmdb.org/t/p/w500{{ pelicula.poster_path }}" class="card-img-top" alt="{{ pelicula.title }}">
+                {% else %}
+                    <img src="https://img.freepik.com/vector-premium/vector-icono-imagen-predeterminado-pagina-imagen-faltante-diseno-sitio-web-o-aplicacion-movil-no-hay-foto-disponible_87543-11093.jpg" class="card-img-top" alt="Imagen Predeterminada">
+                {% endif %}
                 <div class="card-body">
                     <h5 class="card-title" id="TituloPelicula">{{ pelicula.title }}</h5>
                     <p class="card-text" id="DescripcionPelicula">{{ pelicula.overview }}</p>
                 </div>
-                <div class="card-footer">
+                <div class="card-footer" id="FechaPelicula">
                     <small class="text-body-secondary">{{ pelicula.release_date }}</small>
                 </div>
             </div>

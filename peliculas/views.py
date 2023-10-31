@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 import requests
+from datetime import datetime 
+import locale
 from .models import Pelicula
 from .forms import PeliculaForm
 
@@ -19,11 +21,17 @@ def buscar_peliculas(request):
     termino_busqueda = request.POST.get("termino_busqueda")
     api_key = "85efd76158e2b80a6a3d456beb14f93c"
     idioma = "es-mx"
+    locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
     url = f"https://api.themoviedb.org/3/search/movie?api_key={api_key}&query={termino_busqueda}&language={idioma}"
     response = requests.get(url)
     if response.status_code == 200:
       datos = response.json()
       resultados = datos.get("results")
+      for resultado in resultados:
+        if resultado.get("release_date"):
+          fecha_str = resultado["release_date"]
+          fecha_obj = datetime.strptime(fecha_str, "%Y-%m-%d")
+          resultado["release_date"] = fecha_obj.strftime("%d %B %Y")
     else:
       resultados = []
     return render(request, "paginas/buscar_peliculas.html", {"resultados": resultados})
