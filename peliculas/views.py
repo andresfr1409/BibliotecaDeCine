@@ -37,6 +37,17 @@ def buscar_peliculas(request):
     return render(request, "paginas/buscar_peliculas.html", {"resultados": resultados})
   return render(request, "paginas/buscar_peliculas.html")
 
+def detalles_pelicula(request, pelicula_id):
+    api_key = "85efd76158e2b80a6a3d456beb14f93c"
+    idioma = "es-mx"
+    url = f"https://api.themoviedb.org/3/movie/{pelicula_id}?api_key={api_key}&language={idioma}"
+    response = requests.get(url)
+    if response.status_code == 200:
+        pelicula = response.json()
+        return render(request, 'paginas/detalles_pelicula.html', {'pelicula': pelicula})
+    else:
+        return render(request, 'error.html', {'mensaje': 'La película no se encontró.'})
+
 def agregar(request):
   formulario = PeliculaForm(request.POST or None, request.FILES or None)
   if formulario.is_valid():
