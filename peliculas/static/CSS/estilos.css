@@ -136,5 +136,15 @@ h1{
     font-size: 18px;
     font-weight: lighter;
     color: #00000094;
-    
+
+}
+
+#ResumenDetalles{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#Resumen{
+    font-weight: lighter;
+    font-size: 18px;
 }

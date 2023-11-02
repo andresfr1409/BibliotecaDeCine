@@ -45,6 +45,7 @@ def detalles_pelicula(request, pelicula_id):
     if response.status_code == 200:
         pelicula = response.json()
         duracion = pelicula.get("runtime")
+        calificacion = pelicula.get("vote_average")
         if pelicula.get("release_date"):
             fecha_lanzamiento = datetime.strptime(pelicula["release_date"], "%Y-%m-%d")
             pelicula["release_date_year"] = fecha_lanzamiento.year
@@ -59,6 +60,9 @@ def detalles_pelicula(request, pelicula_id):
             minutos = duracion % 60
             pelicula["horas"] = horas
             pelicula["minutos"] = minutos
+        if calificacion:
+            calificacion_redondeada = round(calificacion,1)
+            pelicula["calificacion"] = f"{calificacion_redondeada}"
         return render(request, 'paginas/detalles_pelicula.html', {'pelicula': pelicula})
     else:
         return render(request, 'error.html', {'mensaje': 'La película no se encontró.'})
