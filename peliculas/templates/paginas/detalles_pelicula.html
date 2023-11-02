@@ -18,8 +18,8 @@
                     </div>
                     <div class="col-md-8">
                         <div class="card-body p-4">
-                            <h5>Marie Horwitz</h5>
-                            <p>Web Designer</p>
+                            <h5 id="TituloDetalles">{{ pelicula.title }} ({{ pelicula.release_date_year }}) </h5>
+                            <p id="FechaGenero">{{ pelicula.release_date_formatted }} • {{ pelicula.generos}} • {{ pelicula.horas }}h {{ pelicula.minutos }}m</p>
                             <h6>Information</h6>
                             <hr class="mt-0 mb-4">
                             <div class="row pt-1">

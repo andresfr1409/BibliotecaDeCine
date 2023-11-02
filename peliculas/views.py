@@ -44,6 +44,21 @@ def detalles_pelicula(request, pelicula_id):
     response = requests.get(url)
     if response.status_code == 200:
         pelicula = response.json()
+        duracion = pelicula.get("runtime")
+        if pelicula.get("release_date"):
+            fecha_lanzamiento = datetime.strptime(pelicula["release_date"], "%Y-%m-%d")
+            pelicula["release_date_year"] = fecha_lanzamiento.year
+        if pelicula.get("release_date"):
+            fecha_lanzamiento = datetime.strptime(pelicula["release_date"], "%Y-%m-%d")
+            pelicula["release_date_formatted"] = fecha_lanzamiento.strftime("%d/%m/%Y")
+        if pelicula.get("genres"):
+            generos = [genero["name"] for genero in pelicula["genres"]]
+            pelicula["generos"] = ",".join(generos)
+        if duracion:
+            horas = duracion // 60
+            minutos = duracion % 60
+            pelicula["horas"] = horas
+            pelicula["minutos"] = minutos
         return render(request, 'paginas/detalles_pelicula.html', {'pelicula': pelicula})
     else:
         return render(request, 'error.html', {'mensaje': 'La película no se encontró.'})
