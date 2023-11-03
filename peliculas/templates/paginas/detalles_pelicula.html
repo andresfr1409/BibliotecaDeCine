@@ -13,7 +13,7 @@
                     <div class="col-md-4 gradient-custom text-center text-white"
                         style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
                         <img src="https://image.tmdb.org/t/p/w500{{ pelicula.poster_path }}"
-                        alt="{{ pelicula.title }}" class="img-fluid my-2" style="width: 350px;" id="ImagenDetalles" />
+                        alt="{{ pelicula.title }}" class="img-fluid my-2" style="width: 400px;" id="ImagenDetalles" />
                         <i class="far fa-edit mb-5"></i>
                     </div>
                     <div class="col-md-8">
@@ -30,6 +30,7 @@
                                     </svg></a>
                                 {% endif %}
                             </p>
+                            <p id="Slogan">{{ pelicula.tagline}}</p>
                             <hr class="mb-2">
                             <div class="row pt-1">
                                 <div class="col-12 mb-1">
@@ -37,15 +38,23 @@
                                     <p id="Resumen">{{ pelicula.overview}}</p>
                                 </div>
                             </div>
-                            <hr class="mt-0 mb-4">
+                            <hr class="mt-0 mb-3">
                             <div class="row pt-1">
-                                <div class="col-6 mb-3">
+                                <div class="col-6 mb-1">
                                     <h6 id="TitulosDetalles">Presupuesto</h6>
                                     <p id="DineroDetalles">{{ pelicula.presupuesto}}</p>
                                 </div>
-                                <div class="col-6 mb-3">
+                                <div class="col-6 mb-1">
                                     <h6 id="TitulosDetalles">Ingresos</h6>
                                     <p id="DineroDetalles">{{ pelicula.ingresos}}</p>
+                                </div>
+                                <div class="col-6 mb-1">
+                                    <h6 id="TitulosDetalles">Idioma original</h6>
+                                    <p id="DineroDetalles">{{ pelicula.idioma_original}}</p>
+                                </div>
+                                <div class="col-6 mb-1">
+                                    <h6 id="TitulosDetalles">Estado</h6>
+                                    <p id="DineroDetalles">{{ pelicula.estado}}</p>
                                 </div>
                             </div>
                             <div class="d-flex justify-content-start">

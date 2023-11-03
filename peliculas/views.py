@@ -50,6 +50,8 @@ def detalles_pelicula(request, pelicula_id):
         calificacion = pelicula.get("vote_average")
         presupuesto = pelicula.get("budget")
         ingresos = pelicula.get("revenue")
+        estado = pelicula.get("status")
+        idioma_original = pelicula.get("original_language")
         if pelicula.get("release_date"):
             fecha_lanzamiento = datetime.strptime(pelicula["release_date"], "%Y-%m-%d")
             pelicula["release_date_year"] = fecha_lanzamiento.year
@@ -71,6 +73,16 @@ def detalles_pelicula(request, pelicula_id):
             pelicula["presupuesto"] = locale.currency(presupuesto, grouping=True)
         if ingresos:
             pelicula["ingresos"] = locale.currency(ingresos, grouping=True)
+        else:
+            pelicula["ingresos"] = '$0,0'
+        if estado:
+            if estado == "Released":
+                pelicula["estado"] = "Estrenada"
+            else:
+                pelicula["estado"] = "Sin estrenar"
+        if idioma_original:
+            if idioma_original == "en":
+                pelicula["idioma_original"] = "Inglés"
         return render(request, 'paginas/detalles_pelicula.html', {'pelicula': pelicula})
     else:
         raise Http404("La película no se encontró.")

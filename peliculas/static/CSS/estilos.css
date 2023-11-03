@@ -157,3 +157,10 @@ h1{
 #DineroDetalles{
     font-weight: lighter;
 }
+
+#Slogan{
+    font-weight: lighter;
+    font-size: 17px;
+    color: #00000094;
+    font-style: italic;
+}
