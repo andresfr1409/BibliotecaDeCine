@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import Http404
 import requests
 from datetime import datetime 
 import locale
@@ -44,8 +45,11 @@ def detalles_pelicula(request, pelicula_id):
     response = requests.get(url)
     if response.status_code == 200:
         pelicula = response.json()
+        locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
         duracion = pelicula.get("runtime")
         calificacion = pelicula.get("vote_average")
+        presupuesto = pelicula.get("budget")
+        ingresos = pelicula.get("revenue")
         if pelicula.get("release_date"):
             fecha_lanzamiento = datetime.strptime(pelicula["release_date"], "%Y-%m-%d")
             pelicula["release_date_year"] = fecha_lanzamiento.year
@@ -63,9 +67,13 @@ def detalles_pelicula(request, pelicula_id):
         if calificacion:
             calificacion_redondeada = round(calificacion,1)
             pelicula["calificacion"] = f"{calificacion_redondeada}"
+        if presupuesto:
+            pelicula["presupuesto"] = locale.currency(presupuesto, grouping=True)
+        if ingresos:
+            pelicula["ingresos"] = locale.currency(ingresos, grouping=True)
         return render(request, 'paginas/detalles_pelicula.html', {'pelicula': pelicula})
     else:
-        return render(request, 'error.html', {'mensaje': 'La película no se encontró.'})
+        raise Http404("La película no se encontró.")
 
 def agregar(request):
   formulario = PeliculaForm(request.POST or None, request.FILES or None)

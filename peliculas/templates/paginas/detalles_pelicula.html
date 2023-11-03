@@ -21,7 +21,14 @@
                             <h5 id="TituloDetalles">{{ pelicula.title }} ({{ pelicula.release_date_year }}) </h5>
                             <p id="FechaGenero">{{ pelicula.release_date_formatted }} • {{ pelicula.generos}} • {{ pelicula.horas }}h {{ pelicula.minutos }}m</p>
                             <p><button type="button" class="btn btn-primary">Calificacion <span class="badge bg-success">{{ pelicula.calificacion }}</span></button>
-                                
+                                {% if pelicula.homepage %}
+                                    <a href="{{ pelicula.homepage }}" class="btn btn-primary" target="_blank">
+                                    Sitio web oficial
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+                                        <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+                                        <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+                                    </svg></a>
+                                {% endif %}
                             </p>
                             <hr class="mb-2">
                             <div class="row pt-1">
@@ -30,16 +37,15 @@
                                     <p id="Resumen">{{ pelicula.overview}}</p>
                                 </div>
                             </div>
-                            <h6>Projects</h6>
                             <hr class="mt-0 mb-4">
                             <div class="row pt-1">
                                 <div class="col-6 mb-3">
-                                    <h6>Recent</h6>
-                                    <p class="text-muted">Lorem ipsum</p>
+                                    <h6 id="TitulosDetalles">Presupuesto</h6>
+                                    <p id="DineroDetalles">{{ pelicula.presupuesto}}</p>
                                 </div>
                                 <div class="col-6 mb-3">
-                                    <h6>Most Viewed</h6>
-                                    <p class="text-muted">Dolor sit amet</p>
+                                    <h6 id="TitulosDetalles">Ingresos</h6>
+                                    <p id="DineroDetalles">{{ pelicula.ingresos}}</p>
                                 </div>
                             </div>
                             <div class="d-flex justify-content-start">
@@ -54,11 +60,4 @@
         </div>
     </div>
 </div>
-
-<h1>{{ pelicula.title }}</h1>
-<img src="https://image.tmdb.org/t/p/w500{{ pelicula.poster_path }}" alt="{{ pelicula.title }}">
-<p>{{ pelicula.overview }}</p>
-<p><strong>Fecha de lanzamiento:</strong> {{ pelicula.release_date }}</p>
-<p><strong>Calificación:</strong> {{ pelicula.vote_average }}</p>
-
 {% endblock %}
