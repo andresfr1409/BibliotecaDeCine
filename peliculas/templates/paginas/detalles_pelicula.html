@@ -5,18 +5,17 @@
 {% block contenido %} 
 
 
-<div class="container py-5 h-100">
+<div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col col-lg-13 mb-8 mb-lg-0">
-            <div class="card mb-3" style="border-radius: .5rem;">
+            <div class="card mb-3" id="FondoDetalles">
                 <div class="row g-0">
                     <div class="col-md-4 gradient-custom text-center text-white"
                         style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
                         <img src="https://image.tmdb.org/t/p/w500{{ pelicula.poster_path }}"
-                        alt="{{ pelicula.title }}" class="img-fluid my-2" style="width: 400px;" id="ImagenDetalles" />
-                        <i class="far fa-edit mb-5"></i>
+                        alt="{{ pelicula.title }}" class="img-fluid my-2" style="width: 360px;" id="ImagenDetalles" />
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-7">
                         <div class="card-body p-4">
                             <h5 id="TituloDetalles">{{ pelicula.title }} ({{ pelicula.release_date_year }}) </h5>
                             <p id="FechaGenero">{{ pelicula.release_date_formatted }}({{ pelicula.paises_produccion}}) • {{ pelicula.generos}} • {{ pelicula.horas }}h {{ pelicula.minutos }}m</p>
