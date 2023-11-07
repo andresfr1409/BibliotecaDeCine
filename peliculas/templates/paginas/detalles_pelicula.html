@@ -19,7 +19,7 @@
                     <div class="col-md-8">
                         <div class="card-body p-4">
                             <h5 id="TituloDetalles">{{ pelicula.title }} ({{ pelicula.release_date_year }}) </h5>
-                            <p id="FechaGenero">{{ pelicula.release_date_formatted }} • {{ pelicula.generos}} • {{ pelicula.horas }}h {{ pelicula.minutos }}m</p>
+                            <p id="FechaGenero">{{ pelicula.release_date_formatted }}({{ pelicula.paises_produccion}}) • {{ pelicula.generos}} • {{ pelicula.horas }}h {{ pelicula.minutos }}m</p>
                             <p><button type="button" class="btn btn-primary">Calificacion <span class="badge bg-success">{{ pelicula.calificacion }}</span></button>
                                 {% if pelicula.homepage %}
                                     <a href="{{ pelicula.homepage }}" class="btn btn-primary" target="_blank">

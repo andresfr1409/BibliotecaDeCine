@@ -39,53 +39,57 @@ def buscar_peliculas(request):
   return render(request, "paginas/buscar_peliculas.html")
 
 def detalles_pelicula(request, pelicula_id):
-    api_key = "85efd76158e2b80a6a3d456beb14f93c"
-    idioma = "es-mx"
-    url = f"https://api.themoviedb.org/3/movie/{pelicula_id}?api_key={api_key}&language={idioma}"
-    response = requests.get(url)
-    if response.status_code == 200:
-        pelicula = response.json()
-        locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
-        duracion = pelicula.get("runtime")
-        calificacion = pelicula.get("vote_average")
-        presupuesto = pelicula.get("budget")
-        ingresos = pelicula.get("revenue")
-        estado = pelicula.get("status")
-        idioma_original = pelicula.get("original_language")
-        if pelicula.get("release_date"):
-            fecha_lanzamiento = datetime.strptime(pelicula["release_date"], "%Y-%m-%d")
-            pelicula["release_date_year"] = fecha_lanzamiento.year
-        if pelicula.get("release_date"):
-            fecha_lanzamiento = datetime.strptime(pelicula["release_date"], "%Y-%m-%d")
-            pelicula["release_date_formatted"] = fecha_lanzamiento.strftime("%d/%m/%Y")
-        if pelicula.get("genres"):
-            generos = [genero["name"] for genero in pelicula["genres"]]
-            pelicula["generos"] = ",".join(generos)
-        if duracion:
-            horas = duracion // 60
-            minutos = duracion % 60
-            pelicula["horas"] = horas
-            pelicula["minutos"] = minutos
-        if calificacion:
-            calificacion_redondeada = round(calificacion,1)
-            pelicula["calificacion"] = f"{calificacion_redondeada}"
-        if presupuesto:
-            pelicula["presupuesto"] = locale.currency(presupuesto, grouping=True)
-        if ingresos:
-            pelicula["ingresos"] = locale.currency(ingresos, grouping=True)
-        else:
-            pelicula["ingresos"] = '$0,0'
-        if estado:
-            if estado == "Released":
-                pelicula["estado"] = "Estrenada"
-            else:
-                pelicula["estado"] = "Sin estrenar"
-        if idioma_original:
-            if idioma_original == "en":
-                pelicula["idioma_original"] = "Inglés"
-        return render(request, 'paginas/detalles_pelicula.html', {'pelicula': pelicula})
+  api_key = "85efd76158e2b80a6a3d456beb14f93c"
+  idioma = "es-mx"
+  url = f"https://api.themoviedb.org/3/movie/{pelicula_id}?api_key={api_key}&language={idioma}"
+  response = requests.get(url)
+  if response.status_code == 200:
+    pelicula = response.json()
+    locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
+    duracion = pelicula.get("runtime")
+    calificacion = pelicula.get("vote_average")
+    presupuesto = pelicula.get("budget")
+    ingresos = pelicula.get("revenue")
+    estado = pelicula.get("status")
+    idioma_original = pelicula.get("original_language")
+    paises_produccion = pelicula.get("production_countries")
+    if pelicula.get("release_date"):
+      fecha_lanzamiento = datetime.strptime(pelicula["release_date"], "%Y-%m-%d")
+      pelicula["release_date_year"] = fecha_lanzamiento.year
+    if pelicula.get("release_date"):
+      fecha_lanzamiento = datetime.strptime(pelicula["release_date"], "%Y-%m-%d")
+      pelicula["release_date_formatted"] = fecha_lanzamiento.strftime("%d/%m/%Y")
+    if pelicula.get("genres"):
+      generos = [genero["name"] for genero in pelicula["genres"]]
+      pelicula["generos"] = ",".join(generos)
+    if duracion:
+      horas = duracion // 60
+      minutos = duracion % 60
+      pelicula["horas"] = horas
+      pelicula["minutos"] = minutos
+    if calificacion:
+      calificacion_redondeada = round(calificacion,1)
+      pelicula["calificacion"] = f"{calificacion_redondeada}"
+    if presupuesto:
+      pelicula["presupuesto"] = locale.currency(presupuesto, grouping=True)
+    if ingresos:
+      pelicula["ingresos"] = locale.currency(ingresos, grouping=True)
     else:
-        raise Http404("La película no se encontró.")
+      pelicula["ingresos"] = '$0,0'
+    if estado:
+      if estado == "Released":
+        pelicula["estado"] = "Estrenada"
+      else:
+        pelicula["estado"] = "Sin estrenar"
+    if idioma_original:
+      if idioma_original == "en":
+        pelicula["idioma_original"] = "Inglés"
+    if paises_produccion:
+      paises = [pais["iso_3166_1"] for pais in paises_produccion]
+      pelicula["paises_produccion"] = ", ".join(paises)
+    return render(request, 'paginas/detalles_pelicula.html', {'pelicula': pelicula})
+  else:
+    raise Http404("La película no se encontró.")
 
 def agregar(request):
   formulario = PeliculaForm(request.POST or None, request.FILES or None)
