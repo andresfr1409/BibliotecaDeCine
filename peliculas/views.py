@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from django.http import Http404
+from django.http import Http404, HttpResponseRedirect
+from django.urls import reverse
 import requests
 from datetime import datetime 
 import locale
@@ -90,6 +91,24 @@ def detalles_pelicula(request, pelicula_id):
     return render(request, 'paginas/detalles_pelicula.html', {'pelicula': pelicula})
   else:
     raise Http404("La película no se encontró.")
+
+def guardar_pelicula(request,pelicula_id):
+  api_key = "85efd76158e2b80a6a3d456beb14f93c"
+  idioma = "es-mx"
+  url = f"https://api.themoviedb.org/3/movie/{pelicula_id}?api_key={api_key}&language={idioma}"
+  response = requests.get(url)
+  
+  if response.status_code == 200:
+    pelicula_data = response.json()
+    nueva_pelicula = Pelicula(
+      titulo = pelicula_data['title'],
+      imagen = pelicula_data['poster_path'],
+      descripcion = pelicula_data['overview']
+    )
+    nueva_pelicula.save()
+    return HttpResponseRedirect(reverse('peliculas'))
+  else:
+    raise Http404("No se pudo guardar la pelicula.")
 
 def agregar(request):
   formulario = PeliculaForm(request.POST or None, request.FILES or None)

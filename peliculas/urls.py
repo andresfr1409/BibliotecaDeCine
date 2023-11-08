@@ -11,5 +11,6 @@ urlpatterns = [
   path('peliculas/editar/<int:id>', views.editar, name='editar'),
   path('eliminar/<int:id>', views.eliminar, name='eliminar'),
   path('buscar', views.buscar_peliculas, name='buscar_peliculas'),
-  path('buscar/detalles/<int:pelicula_id>', views.detalles_pelicula, name='detalles_pelicula')
+  path('buscar/detalles/<int:pelicula_id>', views.detalles_pelicula, name='detalles_pelicula'),
+  path('guardar_pelicula/<int:pelicula_id>', views.guardar_pelicula, name='guardar_pelicula')
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
