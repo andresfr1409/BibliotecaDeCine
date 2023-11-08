@@ -102,9 +102,10 @@ def guardar_pelicula(request,pelicula_id):
     pelicula_data = response.json()
     nueva_pelicula = Pelicula(
       titulo = pelicula_data['title'],
-      imagen = pelicula_data['poster_path'],
       descripcion = pelicula_data['overview']
     )
+    if 'poster_path' in pelicula_data:
+      nueva_pelicula.imagen_url = f"https://image.tmdb.org/t/p/w500{pelicula_data['poster_path']}"
     nueva_pelicula.save()
     return HttpResponseRedirect(reverse('peliculas'))
   else:
