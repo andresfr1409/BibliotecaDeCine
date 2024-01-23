@@ -16,8 +16,6 @@ pendiente
 
 ## Funcionalidades Principales
 
-## Secciones
-
 ### Inicio
 
 La sección de inicio proporciona una introducción y una breve descripción de la aplicación, dando a los usuarios una visión general de lo que pueden esperar al utilizar CineLibrary.
