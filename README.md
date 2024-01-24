@@ -8,7 +8,7 @@
 
 ## Nombre y descripcion 
 
-CineLibrary es un proyecto personal que tiene como objetivo proporcionar a los usuarios una plataforma donde puedan explorar, buscar y gestionar información sobre sus películas favoritas. La aplicación utiliza tecnologías web modernas para ofrecer una experiencia intuitiva y atractiva.
+MovieNest es un proyecto personal que tiene como objetivo proporcionar a los usuarios una plataforma donde puedan explorar, buscar y gestionar información sobre sus películas favoritas. La aplicación utiliza tecnologías web modernas para ofrecer una experiencia intuitiva y atractiva.
 
 ## Capturas de Pantalla
 
@@ -18,7 +18,7 @@ pendiente
 
 ### Inicio
 
-La sección de inicio proporciona una introducción y una breve descripción de la aplicación, dando a los usuarios una visión general de lo que pueden esperar al utilizar CineLibrary.
+La sección de inicio proporciona una introducción y una breve descripción de la aplicación, dando a los usuarios una visión general de lo que pueden esperar al utilizar MovieNest.
 
 ### Buscar
 
@@ -26,8 +26,18 @@ La sección de buscar utiliza una interfaz de búsqueda que se integra con la AP
 
 ### Películas
 
-En la sección de películas, los usuarios pueden gestionar y guardar sus películas favoritas. Utiliza el modelo de Django para definir la estructura de la base de datos y MySQL como el motor de base de datos para garantizar un almacenamiento seguro y eficiente de la información. La vista se encarga de procesar las acciones del usuario (agregar, editar, eliminar) y actualizar la base de datos.
+En la sección de películas, los usuarios pueden gestionar y guardar sus películas favoritas que buscan. Utiliza el modelo de Django para definir la estructura de la base de datos y MySQL como el motor de base de datos para garantizar un almacenamiento seguro y eficiente de la información. La vista se encarga de procesar las acciones del usuario (agregar, editar, eliminar) y actualizar la base de datos.
 
 ### Ayuda
 
 La sección de ayuda proporciona guías detalladas sobre cómo utilizar las diversas funciones de la aplicación, incluyendo la búsqueda, gestión y edición de películas. Utiliza plantillas HTML para presentar la información de manera clara y accesible.
+
+## Tecnologías Utilizadas
+
+En la aplicacion, Django se utiliza como el motor principal del backend. sigue el patrón de diseño Modelo-Vista-Plantilla (MVT), donde:
+
+### Modelo
+
+Representa la estructura de la base de datos, define los datos y las relaciones entre ellos. En MovieNest, el modelo se utiliza para gestionar información sobre las películas favoritas que guardan los usuarios.
+
+
