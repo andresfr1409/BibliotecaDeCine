@@ -20,23 +20,23 @@ MovieNest es un proyecto personal que tiene como objetivo proporcionar a los usu
 
 ![image](https://github.com/andresfr1409/BibliotecaDeCine/assets/138944864/cff9f522-1d0a-4558-af58-24f65d26ba81)
 
-- #### Busqueda de la pelicula por nombre haciendo una solicitud REQUEST.POST a la API
+3. ### Busqueda de la pelicula por nombre haciendo una solicitud REQUEST.POST a la API
 
 ![image](https://github.com/andresfr1409/BibliotecaDeCine/assets/138944864/1fafc8d9-6625-46dc-9ec5-1e3013319b4a)
 
-- #### Obtencion de la Informacion de la pelicula haciendo una solicitud REQUEST.GET a la API 
+4. ### Obtencion de la Informacion de la pelicula haciendo una solicitud REQUEST.GET a la API 
 
 ![image](https://github.com/andresfr1409/BibliotecaDeCine/assets/138944864/f02779de-af41-4a14-a7d9-0cc1e02fcf48)
 
-3. ### Seccion de Peliculas
+5. ### Seccion de Peliculas
 
 ![image](https://github.com/andresfr1409/BibliotecaDeCine/assets/138944864/01687b78-be81-4057-9568-9b91e8146ec3)
 
-- #### Editar Informacion de la pelicula
+6. ### Editar Informacion de la pelicula
 
 ![image](https://github.com/andresfr1409/BibliotecaDeCine/assets/138944864/aa67ae3e-01f0-4183-95ff-5477f612b68c)
 
-4. ### Seccion de ayuda
+7. ### Seccion de ayuda
 
 ![image](https://github.com/andresfr1409/BibliotecaDeCine/assets/138944864/b6a9ef40-24e1-4538-a343-071905b5f916)
 
